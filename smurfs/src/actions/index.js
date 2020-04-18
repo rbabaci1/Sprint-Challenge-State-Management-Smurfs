@@ -46,3 +46,16 @@ export const postSmurf = (smurf) => (dispatch) => {
       console.error(err);
     });
 };
+
+export const deleteSmurf = (smurfId) => (dispatch) => {
+  dispatch({
+    type: LOADING,
+  });
+
+  Axios.delete(`http://localhost:3333/smurfs/${smurfId}`).then((response) => {
+    dispatch({
+      type: SUCCESS,
+      payload: response.data,
+    });
+  });
+};

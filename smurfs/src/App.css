@@ -30,6 +30,20 @@
   font-size: 22px;
 }
 
+.smurf-card p {
+  margin: 0 5px 0 0;
+  font-size: 24px;
+  width: fit-content;
+  padding: 1px 7px;
+  cursor: pointer;
+  color: red;
+  border: 1px solid;
+}
+
+.smurf-card p:hover {
+  background-color: #fff;
+}
+
 .smurfs-wrapper {
   display: flex;
   flex-direction: column;
