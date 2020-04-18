@@ -1,5 +1,4 @@
 import Axios from 'axios';
-
 export const LOADING = 'LOADING';
 export const SUCCESS = 'SUCCESS';
 export const ERROR = 'ERROR';
@@ -10,6 +9,15 @@ export const fetchSmurfs = () => (dispatch) => {
   });
 
   Axios.get('http://localhost:3333/smurfs')
-    .then((res) => console.log(res))
-    .catch((err) => console.error(err));
+    .then((response) => {
+      dispatch({
+        type: SUCCESS,
+        payload: response.data,
+      });
+    })
+    .catch((err) =>
+      dispatch({
+        type: ERROR,
+      })
+    );
 };
