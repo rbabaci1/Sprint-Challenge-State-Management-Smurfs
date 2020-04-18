@@ -10,4 +10,6 @@ function Smurfs({ fetchSmurfs }) {
   );
 }
 
+// const mapStateToProps = ({smurfs})
+
 export default connect(null, { fetchSmurfs })(Smurfs);
