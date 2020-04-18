@@ -7,6 +7,13 @@ export default function SmurfForm() {
     height: 0,
   });
 
+  const handleChange = (e) => {
+    setFormInfo({
+      ...formInfo,
+      [e.target.name]: e.target.value,
+    });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
   };
@@ -16,17 +23,41 @@ export default function SmurfForm() {
       <form onSubmit={handleSubmit}>
         <label>
           What's your name:
-          <input id='name' type='text' placeholder='...name' required />
+          <input
+            onChange={handleChange}
+            value={formInfo.name}
+            id='name'
+            name='name'
+            type='text'
+            placeholder='...name'
+            required
+          />
         </label>
 
         <label>
           What's your age:
-          <input id='age' type='number' placeholder='...age' required />
+          <input
+            onChange={handleChange}
+            value={formInfo.age}
+            id='age'
+            name='age'
+            type='number'
+            placeholder='...age'
+            required
+          />
         </label>
 
         <label>
           What's your height:
-          <input id='height' type='number' placeholder='...height' required />
+          <input
+            onChange={handleChange}
+            value={formInfo.height}
+            id='height'
+            name='height'
+            type='number'
+            placeholder='...height'
+            required
+          />
         </label>
 
         <button>Add</button>
