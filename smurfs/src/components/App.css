@@ -1,3 +1,32 @@
 .App {
   text-align: center;
 }
+
+.App h1 {
+  margin: 15px 0;
+}
+
+.smurfs {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  text-align: start;
+  margin-top: 20px;
+}
+
+.smurf-card h1 {
+  font-size: 24px;
+  margin: 10px;
+}
+
+.smurf-card span {
+  font-weight: 200;
+  font-size: 22px;
+}
+
+.show-smurfs {
+  font-size: 22px;
+  padding: 7px 15px;
+  cursor: pointer;
+  margin: 10px 0;
+}

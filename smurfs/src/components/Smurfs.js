@@ -8,12 +8,11 @@ function Smurfs({ fetchSmurfs, smurfs, loading, error }) {
     <p style={{ color: 'red' }}>{error}</p>
   ) : (
     <>
-      <button onClick={fetchSmurfs} disabled={loading}>
+      <button onClick={fetchSmurfs} disabled={loading} className='show-smurfs'>
         Show Smurfs
       </button>
 
       <div className='smurfs'>
-        {console.log(smurfs)}
         {smurfs.map((smurf) => (
           <SmurfCard key={smurf.id} smurf={smurf} />
         ))}
