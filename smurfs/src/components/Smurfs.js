@@ -5,7 +5,7 @@ import SmurfCard from './SmurfCard';
 
 function Smurfs({ fetchSmurfs, smurfs, loading, error }) {
   return error ? (
-    { error }
+    <p style={{ color: 'red' }}>{error}</p>
   ) : (
     <>
       <button onClick={fetchSmurfs} disabled={loading}>
@@ -13,6 +13,7 @@ function Smurfs({ fetchSmurfs, smurfs, loading, error }) {
       </button>
 
       <div className='smurfs'>
+        {console.log(smurfs)}
         {smurfs.map((smurf) => (
           <SmurfCard key={smurf.id} smurf={smurf} />
         ))}
