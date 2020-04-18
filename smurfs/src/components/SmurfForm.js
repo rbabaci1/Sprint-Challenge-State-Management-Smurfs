@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { postSmurf } from '../actions';
 
-export default function SmurfForm() {
-  const [formInfo, setFormInfo] = useState({
-    name: '',
-    age: '',
-    height: '',
-  });
+const initialState = {
+  name: '',
+  age: '',
+  height: '',
+};
+
+function SmurfForm({ postSmurf }) {
+  const [formInfo, setFormInfo] = useState(initialState);
 
   const handleChange = (e) => {
     setFormInfo({
@@ -17,7 +21,8 @@ export default function SmurfForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log(formInfo);
+    postSmurf(formInfo);
+    setFormInfo(initialState);
   };
 
   return (
@@ -67,3 +72,5 @@ export default function SmurfForm() {
     </div>
   );
 }
+
+export default connect(null, { postSmurf })(SmurfForm);
