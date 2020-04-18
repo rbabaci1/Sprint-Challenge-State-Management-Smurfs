@@ -8,10 +8,16 @@
 
 .smurfs {
   display: flex;
-  justify-content: space-evenly;
   flex-wrap: wrap;
   text-align: start;
   margin-top: 20px;
+}
+
+.smurf-card {
+  border: 1px solid rgb(194, 193, 193);
+  background-color: honeydew;
+  margin: 20px;
+  width: 250px;
 }
 
 .smurf-card h1 {
