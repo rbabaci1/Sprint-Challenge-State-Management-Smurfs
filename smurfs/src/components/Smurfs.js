@@ -6,7 +6,7 @@ import SmurfCard from './SmurfCard';
 function Smurfs({ fetchSmurfs, smurfs, loading, error }) {
   useEffect(() => {
     fetchSmurfs();
-  }, [loading, fetchSmurfs]);
+  }, [fetchSmurfs]);
 
   return error ? (
     <p style={{ color: 'red' }}>{error}</p>

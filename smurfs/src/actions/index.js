@@ -10,10 +10,12 @@ export const fetchSmurfs = () => (dispatch) => {
 
   Axios.get('http://localhost:3333/smurfs')
     .then((response) => {
-      dispatch({
-        type: SUCCESS,
-        payload: response.data,
-      });
+      setTimeout(() => {
+        dispatch({
+          type: SUCCESS,
+          payload: response.data,
+        });
+      }, 1500);
     })
     .catch((err) => {
       dispatch({
@@ -30,10 +32,12 @@ export const postSmurf = (smurf) => (dispatch) => {
 
   Axios.post('http://localhost:3333/smurfs', smurf)
     .then((response) => {
-      dispatch({
-        type: SUCCESS,
-        payload: response.data,
-      });
+      setTimeout(() => {
+        dispatch({
+          type: SUCCESS,
+          payload: response.data,
+        });
+      }, 1500);
     })
     .catch((err) => {
       dispatch({

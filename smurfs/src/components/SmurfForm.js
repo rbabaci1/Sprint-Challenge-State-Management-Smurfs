@@ -8,7 +8,7 @@ const initialState = {
   height: '',
 };
 
-function SmurfForm({ postSmurf }) {
+function SmurfForm({ postSmurf, loading }) {
   const [formInfo, setFormInfo] = useState(initialState);
 
   const handleChange = (e) => {
@@ -67,10 +67,12 @@ function SmurfForm({ postSmurf }) {
           />
         </label>
 
-        <button>Add</button>
+        <button disabled={loading}>{loading ? 'Loading...' : 'Add'}</button>
       </form>
     </div>
   );
 }
 
-export default connect(null, { postSmurf })(SmurfForm);
+export default connect(({ loading }) => ({ loading }), { postSmurf })(
+  SmurfForm
+);
