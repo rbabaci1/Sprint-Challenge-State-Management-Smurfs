@@ -1,0 +1,65 @@
+.App {
+  text-align: center;
+}
+
+.App h1 {
+  margin: 15px 0;
+}
+
+.smurfs {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  text-align: start;
+  margin-top: 20px;
+}
+
+.smurf-card h1 {
+  font-size: 24px;
+  margin: 10px;
+}
+
+.smurf-card span {
+  font-weight: 200;
+  font-size: 22px;
+}
+
+.show-smurfs {
+  font-size: 22px;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin: 10px 0;
+}
+
+.smurf-form form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.smurf-form form label {
+  margin: 10px;
+}
+
+.smurf-form form input {
+  margin: 10px;
+  font-size: 17px;
+  padding: 5px;
+  letter-spacing: 0.5px;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid gray;
+  color: blue;
+}
+
+#name {
+  margin-left: 17px;
+}
+
+#age {
+  margin-left: 30px;
+}
+
+#height {
+  margin-left: 14px;
+}
