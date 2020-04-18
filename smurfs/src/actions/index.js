@@ -2,6 +2,7 @@ import Axios from 'axios';
 export const LOADING = 'LOADING';
 export const SUCCESS = 'SUCCESS';
 export const ERROR = 'ERROR';
+export const POST = 'POST';
 
 export const fetchSmurfs = () => (dispatch) => {
   dispatch({
@@ -21,4 +22,14 @@ export const fetchSmurfs = () => (dispatch) => {
       });
       console.error(err);
     });
+};
+
+export const postSmurf = (smurf) => (dispatch) => {
+  dispatch({
+    type: LOADING,
+  });
+
+  Axios.post('/smurfs', smurf)
+    .then((response) => console.log(response))
+    .catch((err) => console.error(err));
 };

@@ -60,15 +60,15 @@
   border: none;
   border-bottom: 1px solid gray;
   color: blue;
-  width: 120px;
+  width: 130px;
 }
 
 #name {
-  margin-left: 17px;
+  margin-left: 19px;
 }
 
 #age {
-  margin-left: 30px;
+  margin-left: 35px;
 }
 
 #height {

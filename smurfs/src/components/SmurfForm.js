@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 export default function SmurfForm() {
   const [formInfo, setFormInfo] = useState({
     name: '',
-    age: 0,
-    height: 0,
+    age: '',
+    height: '',
   });
 
   const handleChange = (e) => {
@@ -16,6 +16,8 @@ export default function SmurfForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    console.log(formInfo);
   };
 
   return (
@@ -55,7 +57,7 @@ export default function SmurfForm() {
             id='height'
             name='height'
             type='number'
-            placeholder='...height'
+            placeholder='...height in foot'
             required
           />
         </label>
