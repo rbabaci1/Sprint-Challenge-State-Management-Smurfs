@@ -15,9 +15,10 @@ export const fetchSmurfs = () => (dispatch) => {
         payload: response.data,
       });
     })
-    .catch((err) =>
+    .catch((err) => {
       dispatch({
         type: ERROR,
-      })
-    );
+      });
+      console.error(err);
+    });
 };
