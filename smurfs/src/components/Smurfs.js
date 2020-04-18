@@ -3,7 +3,7 @@ import { fetchSmurfs } from '../actions';
 import { connect } from 'react-redux';
 import SmurfCard from './SmurfCard';
 
-function Smurfs({ fetchSmurfs, smurfs, loading, error }) {
+function Smurfs({ fetchSmurfs, smurfs, error }) {
   useEffect(() => {
     fetchSmurfs();
   }, [fetchSmurfs]);
@@ -21,9 +21,9 @@ function Smurfs({ fetchSmurfs, smurfs, loading, error }) {
   );
 }
 
-const mapStateToProps = ({ smurfs, loading, error }) => ({
+const mapStateToProps = ({ smurfs, error }) => ({
   smurfs,
-  loading,
+
   error,
 });
 

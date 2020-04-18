@@ -61,8 +61,8 @@ function SmurfForm({ postSmurf, loading }) {
             value={formInfo.height}
             id='height'
             name='height'
-            type='number'
-            placeholder='...height in foot'
+            type='text'
+            placeholder='...height'
             required
           />
         </label>
