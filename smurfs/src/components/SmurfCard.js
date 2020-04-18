@@ -1,9 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { deleteSmurf } from '../actions';
 
-export default function SmurfCard({ smurf }) {
+function SmurfCard({ smurf, deleteSmurf }) {
   return (
     <div className='smurf-card'>
-      <p>X</p>
+      <p onClick={() => deleteSmurf(smurf.id)}>X</p>
 
       <h1>
         Name: <span>{smurf.name}</span>
@@ -19,3 +21,5 @@ export default function SmurfCard({ smurf }) {
     </div>
   );
 }
+
+export default connect(null, { deleteSmurf })(SmurfCard);

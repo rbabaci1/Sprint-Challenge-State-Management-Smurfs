@@ -15,7 +15,7 @@ export const fetchSmurfs = () => (dispatch) => {
           type: SUCCESS,
           payload: response.data,
         });
-      }, 1500);
+      }, 1000);
     })
     .catch((err) => {
       dispatch({
@@ -37,7 +37,7 @@ export const postSmurf = (smurf) => (dispatch) => {
           type: SUCCESS,
           payload: response.data,
         });
-      }, 1500);
+      }, 1000);
     })
     .catch((err) => {
       dispatch({
