@@ -1,4 +1,4 @@
-import { LOADING, SUCCESS } from '../actions';
+import { LOADING, SUCCESS, ERROR } from '../actions';
 
 const initialState = {
   smurfs: [],
@@ -12,12 +12,19 @@ export const reducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         loading: true,
+        error: '',
       };
     case SUCCESS:
       return {
         ...state,
         smurfs: payload,
         loading: false,
+      };
+    case ERROR:
+      return {
+        ...state,
+        loading: false,
+        error: 'Request failed, please try again!',
       };
     default:
       return state;
