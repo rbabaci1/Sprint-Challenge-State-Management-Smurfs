@@ -7,7 +7,7 @@ function Smurfs({ fetchSmurfs, smurfs, loading, error }) {
   return error ? (
     <p style={{ color: 'red' }}>{error}</p>
   ) : (
-    <>
+    <div className='smurfs-wrapper'>
       <button onClick={fetchSmurfs} disabled={loading} className='show-smurfs'>
         Show Smurfs
       </button>
@@ -17,7 +17,7 @@ function Smurfs({ fetchSmurfs, smurfs, loading, error }) {
           <SmurfCard key={smurf.id} smurf={smurf} />
         ))}
       </div>
-    </>
+    </div>
   );
 }
 
