@@ -1,9 +1,13 @@
 import React from 'react';
+import { fetchSmurfs } from '../actions';
+import { connect } from 'react-redux';
 
-export default function Smurfs() {
+function Smurfs({ fetchSmurfs }) {
   return (
     <div className='smurfs'>
-      <button>Show Smurfs</button>
+      <button onClick={fetchSmurfs}>Show Smurfs</button>
     </div>
   );
 }
+
+export default connect(null, { fetchSmurfs })(Smurfs);
