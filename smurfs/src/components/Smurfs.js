@@ -10,6 +10,10 @@ function Smurfs({ fetchSmurfs }) {
   );
 }
 
-// const mapStateToProps = ({smurfs})
+const mapStateToProps = ({ smurfs, loading, error }) => ({
+  smurfs,
+  loading,
+  error,
+});
 
-export default connect(null, { fetchSmurfs })(Smurfs);
+export default connect(mapStateToProps, { fetchSmurfs })(Smurfs);
