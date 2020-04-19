@@ -1,8 +1,9 @@
-import { LOADING, SUCCESS, ERROR } from '../actions/smurfsActions';
+import { LOADING, SUCCESS, ERROR, DELETING } from '../actions/smurfsActions';
 
 const initialState = {
   smurfs: [],
   loading: false,
+  deleting: false,
   error: '',
 };
 
@@ -14,6 +15,13 @@ export const smurfsReducer = (state = initialState, { type, payload }) => {
         loading: true,
         error: '',
       };
+    case DELETING: {
+      return {
+        ...state,
+        deleting: true,
+        error: '',
+      };
+    }
     case SUCCESS:
       return {
         ...state,

@@ -2,6 +2,7 @@ import Axios from 'axios';
 export const LOADING = 'LOADING';
 export const SUCCESS = 'SUCCESS';
 export const ERROR = 'ERROR';
+export const DELETING = 'DELETING';
 
 export const fetchSmurfs = () => (dispatch) => {
   dispatch({
@@ -36,7 +37,7 @@ export const postNewSmurf = (newSmurf) => (dispatch) => {
 };
 
 export const deleteSmurf = (smurfId) => (dispatch) => {
-  dispatch({ type: LOADING });
+  dispatch({ type: DELETING });
 
   Axios.delete(`http://localhost:3333/smurfs/${smurfId}`).then((response) => {
     dispatch({
