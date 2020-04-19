@@ -21,10 +21,9 @@ function Smurfs({ fetchSmurfs, smurfs, error }) {
   );
 }
 
-const mapStateToProps = ({ smurfs, error }) => ({
-  smurfs,
-
-  error,
+const mapStateToProps = ({ smurfsReducer }) => ({
+  smurfs: smurfsReducer.smurfs,
+  error: smurfsReducer.error,
 });
 
 export default connect(mapStateToProps, { fetchSmurfs })(Smurfs);
