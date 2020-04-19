@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { postNewSmurf, modifySmurf } from '../actions/smurfsActions';
 import {
   handleInput,
   resetForm,
@@ -7,7 +8,6 @@ import {
   AGE,
   HEIGHT,
 } from '../actions/formActions';
-import { postNewSmurf, modifySmurf } from '../actions/smurfsActions';
 
 function SmurfForm({
   formInfo,

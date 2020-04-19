@@ -10,31 +10,14 @@ const initialState = {
 export const smurfsReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case LOADING:
-      return {
-        ...state,
-        loading: true,
-        error: '',
-      };
+      return { ...state, loading: true, error: '' };
     case DELETING: {
-      return {
-        ...state,
-        deleting: true,
-        error: '',
-      };
+      return { ...state, deleting: true, error: '' };
     }
     case SUCCESS:
-      return {
-        ...state,
-        smurfs: payload,
-        loading: false,
-      };
+      return { ...state, smurfs: payload, loading: false };
     case ERROR:
-      return {
-        ...state,
-        loading: false,
-        deleting: false,
-        error: payload,
-      };
+      return { ...state, loading: false, deleting: false, error: payload };
     default:
       return state;
   }

@@ -3,21 +3,16 @@ export const LOADING = 'LOADING';
 export const SUCCESS = 'SUCCESS';
 export const ERROR = 'ERROR';
 export const DELETING = 'DELETING';
-export const EDITING = 'EDITING';
 
 export const fetchSmurfs = () => (dispatch) => {
-  dispatch({
-    type: LOADING,
-  });
+  dispatch({ type: LOADING });
 
   Axios.get('http://localhost:3333/smurfs')
     .then((response) => {
       dispatch({ type: SUCCESS, payload: response.data });
     })
     .catch((err) => {
-      dispatch({
-        type: ERROR,
-      });
+      dispatch({ type: ERROR });
       console.error(err);
     });
 };
@@ -59,10 +54,7 @@ export const deleteSmurf = (smurfId) => (dispatch) => {
 
   Axios.delete(`http://localhost:3333/smurfs/${smurfId}`)
     .then((response) => {
-      dispatch({
-        type: SUCCESS,
-        payload: response.data,
-      });
+      dispatch({ type: SUCCESS, payload: response.data });
     })
     .catch((err) => {
       dispatch({
