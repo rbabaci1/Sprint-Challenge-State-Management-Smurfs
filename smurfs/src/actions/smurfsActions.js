@@ -10,12 +10,7 @@ export const fetchSmurfs = () => (dispatch) => {
 
   Axios.get('http://localhost:3333/smurfs')
     .then((response) => {
-      setTimeout(() => {
-        dispatch({
-          type: SUCCESS,
-          payload: response.data,
-        });
-      }, 1000);
+      dispatch({ type: SUCCESS, payload: response.data });
     })
     .catch((err) => {
       dispatch({
@@ -25,32 +20,23 @@ export const fetchSmurfs = () => (dispatch) => {
     });
 };
 
-export const postSmurf = (smurf) => (dispatch) => {
-  dispatch({
-    type: LOADING,
-  });
+export const postNewSmurf = (newSmurf) => (dispatch) => {
+  dispatch({ type: LOADING });
 
-  Axios.post('http://localhost:3333/smurfs', smurf)
+  Axios.post('http://localhost:3333/smurfs', newSmurf)
     .then((response) => {
       setTimeout(() => {
-        dispatch({
-          type: SUCCESS,
-          payload: response.data,
-        });
+        dispatch({ type: SUCCESS, payload: response.data });
       }, 1000);
     })
     .catch((err) => {
-      dispatch({
-        type: ERROR,
-      });
+      dispatch({ type: ERROR });
       console.error(err);
     });
 };
 
 export const deleteSmurf = (smurfId) => (dispatch) => {
-  dispatch({
-    type: LOADING,
-  });
+  dispatch({ type: LOADING });
 
   Axios.delete(`http://localhost:3333/smurfs/${smurfId}`).then((response) => {
     dispatch({

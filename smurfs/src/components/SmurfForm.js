@@ -1,16 +1,25 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {
-  handleName,
-  handleAge,
-  handleHeight,
-  postNewSmurf,
+  handleInput,
+  resetForm,
+  NAME,
+  AGE,
+  HEIGHT,
 } from '../actions/formActions';
+import { postNewSmurf } from '../actions/smurfsActions';
 
-function SmurfForm({ formInfo, handleName, handleAge, handleHeight }) {
+function SmurfForm({
+  formInfo,
+  handleInput,
+  loading,
+  postNewSmurf,
+  resetForm,
+}) {
   const handleSubmit = (e) => {
     e.preventDefault();
     postNewSmurf(formInfo);
+    resetForm();
   };
 
   return (
@@ -19,7 +28,7 @@ function SmurfForm({ formInfo, handleName, handleAge, handleHeight }) {
         <label>
           What's your name:
           <input
-            onChange={handleName}
+            onChange={(e) => handleInput(e, NAME)}
             value={formInfo.name}
             id='name'
             type='text'
@@ -31,7 +40,7 @@ function SmurfForm({ formInfo, handleName, handleAge, handleHeight }) {
         <label>
           What's your age:
           <input
-            onChange={handleAge}
+            onChange={(e) => handleInput(e, AGE)}
             value={formInfo.age}
             id='age'
             type='number'
@@ -43,7 +52,7 @@ function SmurfForm({ formInfo, handleName, handleAge, handleHeight }) {
         <label>
           What's your height:
           <input
-            onChange={handleHeight}
+            onChange={(e) => handleInput(e, HEIGHT)}
             value={formInfo.height}
             id='height'
             type='text'
@@ -52,15 +61,16 @@ function SmurfForm({ formInfo, handleName, handleAge, handleHeight }) {
           />
         </label>
 
-        <button disabled={formInfo.posting}>
-          {formInfo.posting ? 'Loading...' : 'Add'}
-        </button>
+        <button disabled={loading}>{loading ? 'Loading...' : 'Add'}</button>
       </form>
     </div>
   );
 }
 
-const mapStateToProps = ({ formReducer }) => ({ formInfo: formReducer });
-const mapDispatchToProps = { handleName, handleAge, handleHeight };
+const mapStateToProps = ({ formReducer, smurfsReducer }) => ({
+  formInfo: formReducer,
+  loading: smurfsReducer.loading,
+});
+const mapDispatchToProps = { handleInput, postNewSmurf, resetForm };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SmurfForm);

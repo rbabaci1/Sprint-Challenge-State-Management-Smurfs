@@ -1,27 +1,17 @@
 export const NAME = 'NAME';
 export const AGE = 'AGE';
 export const HEIGHT = 'HEIGHT';
-export const POST_NEW_SMURF = 'POST_NEW_SMURF';
+export const RESET = 'RESET';
 
-export const handleName = (e) => {
+export const handleInput = (e, fieldName) => {
   return {
-    type: NAME,
+    type: fieldName,
     payload: e.target.value,
   };
 };
 
-export const handleAge = (e) => {
+export const resetForm = () => {
   return {
-    type: AGE,
-    payload: e.target.value,
+    type: RESET,
   };
 };
-
-export const handleHeight = (e) => {
-  return {
-    type: HEIGHT,
-    payload: e.target.value,
-  };
-};
-
-export const postNewSmurf = (formData) => (dispatch) => {};

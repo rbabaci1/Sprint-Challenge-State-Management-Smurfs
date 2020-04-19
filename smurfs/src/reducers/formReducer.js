@@ -1,11 +1,9 @@
-import { NAME, AGE, HEIGHT } from '../actions/formActions';
+import { NAME, AGE, HEIGHT, RESET } from '../actions/formActions';
 
 export const initialState = {
   name: '',
   age: '',
   height: '',
-  posting: false,
-  error: '',
 };
 
 export const formReducer = (state = initialState, { type, payload }) => {
@@ -28,6 +26,8 @@ export const formReducer = (state = initialState, { type, payload }) => {
         height: payload,
       };
     }
+    case RESET:
+      return initialState;
     default:
       return state;
   }
