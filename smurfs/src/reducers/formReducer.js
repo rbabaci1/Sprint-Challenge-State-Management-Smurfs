@@ -1,9 +1,11 @@
 import { NAME, AGE, HEIGHT, RESET } from '../actions/formActions';
+import { EDITING } from '../actions/smurfsActions';
 
 export const initialState = {
   name: '',
   age: '',
   height: '',
+  editing: false,
 };
 
 export const formReducer = (state = initialState, { type, payload }) => {
@@ -25,6 +27,9 @@ export const formReducer = (state = initialState, { type, payload }) => {
         ...state,
         height: payload,
       };
+    }
+    case EDITING: {
+      return { ...payload, editing: true };
     }
     case RESET:
       return initialState;

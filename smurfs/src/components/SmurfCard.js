@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { deleteSmurf } from '../actions/smurfsActions';
+import { editSmurf } from '../actions/formActions';
 
-function SmurfCard({ smurf, deleteSmurf }) {
+function SmurfCard({ smurf, deleteSmurf, editSmurf }) {
   return (
     <div className='smurf-card'>
       <div className='buttons'>
@@ -10,7 +11,9 @@ function SmurfCard({ smurf, deleteSmurf }) {
           X
         </p>
 
-        <p className='edit'>edit</p>
+        <p className='edit' onClick={() => editSmurf(smurf)}>
+          edit
+        </p>
       </div>
 
       <h1>
@@ -28,4 +31,4 @@ function SmurfCard({ smurf, deleteSmurf }) {
   );
 }
 
-export default connect(null, { deleteSmurf })(SmurfCard);
+export default connect(null, { deleteSmurf, editSmurf })(SmurfCard);

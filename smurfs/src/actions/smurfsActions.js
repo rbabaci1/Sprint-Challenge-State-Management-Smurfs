@@ -3,6 +3,7 @@ export const LOADING = 'LOADING';
 export const SUCCESS = 'SUCCESS';
 export const ERROR = 'ERROR';
 export const DELETING = 'DELETING';
+export const EDITING = 'EDITING';
 
 export const fetchSmurfs = () => (dispatch) => {
   dispatch({
@@ -34,6 +35,20 @@ export const postNewSmurf = (newSmurf) => (dispatch) => {
       dispatch({
         type: ERROR,
         payload: `Can't add a new Smurf now, please try again later.`,
+      });
+      console.error(err);
+    });
+};
+
+export const modifySmurf = (modifiedSmurf) => (dispatch) => {
+  Axios.put(`http://localhost:3333/smurfs/${modifiedSmurf.id}`, modifiedSmurf)
+    .then((response) => {
+      dispatch({ type: SUCCESS, payload: response.data });
+    })
+    .catch((err) => {
+      dispatch({
+        type: ERROR,
+        payload: `Can't modify the Smurf now, please try again later.`,
       });
       console.error(err);
     });
