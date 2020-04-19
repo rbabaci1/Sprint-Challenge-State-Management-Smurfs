@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { deleteSmurf } from '../actions';
+import { deleteSmurf } from '../actions/smurfsActions';
 
 function SmurfCard({ smurf, deleteSmurf }) {
   return (

@@ -1,4 +1,4 @@
-import { LOADING, SUCCESS, ERROR } from '../actions';
+import { LOADING, SUCCESS, ERROR } from '../actions/smurfsActions';
 
 const initialState = {
   smurfs: [],

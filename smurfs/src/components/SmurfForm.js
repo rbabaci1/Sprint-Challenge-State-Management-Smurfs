@@ -1,28 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
-import { postSmurf } from '../actions';
+import {
+  handleName,
+  handleAge,
+  handleHeight,
+  postNewSmurf,
+} from '../actions/formActions';
 
-const initialState = {
-  name: '',
-  age: '',
-  height: '',
-};
-
-function SmurfForm({ postSmurf, loading }) {
-  const [formInfo, setFormInfo] = useState(initialState);
-
-  const handleChange = (e) => {
-    setFormInfo({
-      ...formInfo,
-      [e.target.name]: e.target.value,
-    });
-  };
-
+function SmurfForm({ formInfo, handleName, handleAge, handleHeight }) {
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    postSmurf(formInfo);
-    setFormInfo(initialState);
+    postNewSmurf(formInfo);
   };
 
   return (
@@ -31,10 +19,9 @@ function SmurfForm({ postSmurf, loading }) {
         <label>
           What's your name:
           <input
-            onChange={handleChange}
+            onChange={handleName}
             value={formInfo.name}
             id='name'
-            name='name'
             type='text'
             placeholder='...name'
             required
@@ -44,10 +31,9 @@ function SmurfForm({ postSmurf, loading }) {
         <label>
           What's your age:
           <input
-            onChange={handleChange}
+            onChange={handleAge}
             value={formInfo.age}
             id='age'
-            name='age'
             type='number'
             placeholder='...age'
             required
@@ -57,22 +43,24 @@ function SmurfForm({ postSmurf, loading }) {
         <label>
           What's your height:
           <input
-            onChange={handleChange}
+            onChange={handleHeight}
             value={formInfo.height}
             id='height'
-            name='height'
             type='text'
             placeholder='...height'
             required
           />
         </label>
 
-        <button disabled={loading}>{loading ? 'Loading...' : 'Add'}</button>
+        <button disabled={formInfo.posting}>
+          {formInfo.posting ? 'Loading...' : 'Add'}
+        </button>
       </form>
     </div>
   );
 }
 
-export default connect(({ loading }) => ({ loading }), { postSmurf })(
-  SmurfForm
-);
+const mapStateToProps = ({ formReducer }) => ({ formInfo: formReducer });
+const mapDispatchToProps = { handleName, handleAge, handleHeight };
+
+export default connect(mapStateToProps, mapDispatchToProps)(SmurfForm);

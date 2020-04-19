@@ -1,11 +1,11 @@
-export const NAME = 'NAME';
-export const AGE = 'AGE';
-export const HEIGHT = 'HEIGHT';
+import { NAME, AGE, HEIGHT } from '../actions/formActions';
 
-const initialState = {
+export const initialState = {
   name: '',
   age: '',
   height: '',
+  posting: false,
+  error: '',
 };
 
 export const formReducer = (state = initialState, { type, payload }) => {
