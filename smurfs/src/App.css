@@ -15,33 +15,46 @@
 
 .smurf-card {
   border: 1px solid rgb(194, 193, 193);
-  background-color: honeydew;
+  background-color: rgb(229, 250, 229);
   margin: 20px;
-  width: 250px;
+  width: 270px;
 }
 
 .smurf-card h1 {
-  font-size: 24px;
+  font-size: 22px;
   margin: 10px;
 }
 
 .smurf-card span {
   font-weight: 200;
-  font-size: 22px;
+  font-size: 20px;
 }
 
-.smurf-card p {
-  margin: 0 5px 0 0;
-  font-size: 24px;
-  width: fit-content;
-  padding: 1px 7px;
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttons p {
+  padding: 0px 5px;
+  font-size: 20px;
+  margin: 3px;
   cursor: pointer;
+}
+
+.buttons p:hover {
+  background-color: #fff;
+}
+
+.edit {
+  border: 1px solid green;
+  color: green;
+}
+
+.delete {
+  width: fit-content;
   color: red;
   border: 1px solid;
-}
-
-.smurf-card p:hover {
-  background-color: #fff;
 }
 
 .smurfs-wrapper {

@@ -5,7 +5,13 @@ import { deleteSmurf } from '../actions/smurfsActions';
 function SmurfCard({ smurf, deleteSmurf }) {
   return (
     <div className='smurf-card'>
-      <p onClick={() => deleteSmurf(smurf.id)}>X</p>
+      <div className='buttons'>
+        <p onClick={() => deleteSmurf(smurf.id)} className='delete'>
+          X
+        </p>
+
+        <p className='edit'>edit</p>
+      </div>
 
       <h1>
         Name: <span>{smurf.name}</span>

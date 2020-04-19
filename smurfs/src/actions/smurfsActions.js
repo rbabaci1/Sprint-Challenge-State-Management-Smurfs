@@ -31,7 +31,10 @@ export const postNewSmurf = (newSmurf) => (dispatch) => {
       }, 1000);
     })
     .catch((err) => {
-      dispatch({ type: ERROR });
+      dispatch({
+        type: ERROR,
+        payload: `Can't add a new Smurf now, please try again later.`,
+      });
       console.error(err);
     });
 };
@@ -39,10 +42,18 @@ export const postNewSmurf = (newSmurf) => (dispatch) => {
 export const deleteSmurf = (smurfId) => (dispatch) => {
   dispatch({ type: DELETING });
 
-  Axios.delete(`http://localhost:3333/smurfs/${smurfId}`).then((response) => {
-    dispatch({
-      type: SUCCESS,
-      payload: response.data,
+  Axios.delete(`http://localhost:3333/smurfs/${smurfId}`)
+    .then((response) => {
+      dispatch({
+        type: SUCCESS,
+        payload: response.data,
+      });
+    })
+    .catch((err) => {
+      dispatch({
+        type: ERROR,
+        payload: `Can't delete the Smurf now, please try again later.`,
+      });
+      console.error(err);
     });
-  });
 };

@@ -32,7 +32,8 @@ export const smurfsReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         loading: false,
-        error: 'Request failed, please try again!',
+        deleting: false,
+        error: payload,
       };
     default:
       return state;
