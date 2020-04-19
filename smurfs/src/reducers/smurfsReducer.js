@@ -6,7 +6,7 @@ const initialState = {
   error: '',
 };
 
-export const reducer = (state = initialState, { type, payload }) => {
+export const smurfsReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case LOADING:
       return {
