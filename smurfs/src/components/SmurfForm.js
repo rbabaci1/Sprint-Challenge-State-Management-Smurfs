@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 import { postNewSmurf, modifySmurf } from '../actions/smurfsActions';
 import {
   handleInput,
@@ -9,20 +9,15 @@ import {
   HEIGHT,
 } from '../actions/formActions';
 
-function SmurfForm({
-  formInfo,
-  handleInput,
-  resetForm,
-  loading,
-  postNewSmurf,
-  modifySmurf,
-}) {
+function SmurfForm({ handleInput, resetForm, postNewSmurf, modifySmurf }) {
+  const { loading } = useSelector(({ smurfsReducer }) => smurfsReducer);
+  const formInfo = useSelector(({ formReducer }) => formReducer);
   const { name, age, height, editing } = formInfo;
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!formInfo.editing) postNewSmurf(formInfo);
+    if (!editing) postNewSmurf(formInfo);
     else modifySmurf(formInfo);
 
     resetForm();
@@ -75,10 +70,6 @@ function SmurfForm({
   );
 }
 
-const mapStateToProps = ({ formReducer, smurfsReducer }) => ({
-  formInfo: formReducer,
-  loading: smurfsReducer.loading,
-});
 const mapDispatchToProps = {
   handleInput,
   resetForm,
@@ -86,4 +77,4 @@ const mapDispatchToProps = {
   modifySmurf,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SmurfForm);
+export default connect(null, mapDispatchToProps)(SmurfForm);
