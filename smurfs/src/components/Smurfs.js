@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { fetchSmurfs } from '../actions/smurfsActions';
 import { connect, useSelector } from 'react-redux';
+import { fetchSmurfs } from '../actions/smurfsActions';
 import SmurfCard from './SmurfCard';
 
 function Smurfs({ fetchSmurfs }) {

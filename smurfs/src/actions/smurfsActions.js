@@ -36,6 +36,8 @@ export const postNewSmurf = (newSmurf) => (dispatch) => {
 };
 
 export const modifySmurf = (modifiedSmurf) => (dispatch) => {
+  dispatch({ type: LOADING });
+
   Axios.put(`http://localhost:3333/smurfs/${modifiedSmurf.id}`, modifiedSmurf)
     .then((response) => {
       dispatch({ type: SUCCESS, payload: response.data });
@@ -52,7 +54,7 @@ export const modifySmurf = (modifiedSmurf) => (dispatch) => {
 export const deleteSmurf = (smurfId) => (dispatch) => {
   dispatch({ type: DELETING });
 
-  Axios.delete(`http://localhost:3333/smurfs/${smurfId}`)
+  Axios.delete(`http://llocalhost:3333/smurfs/${smurfId}`)
     .then((response) => {
       dispatch({ type: SUCCESS, payload: response.data });
     })

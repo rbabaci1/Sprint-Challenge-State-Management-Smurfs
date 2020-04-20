@@ -9,7 +9,8 @@ body {
 }
 
 .App h1 {
-  margin: 15px 0;
+  margin: 30px 20px;
+  border: 1px dashed rgb(187, 186, 186);
 }
 
 .smurfs {
@@ -32,7 +33,7 @@ body {
 }
 
 .smurf-card span {
-  font-weight: 200;
+  font-weight: 400;
   font-size: 20px;
 }
 
@@ -82,12 +83,14 @@ body {
   align-items: flex-start;
   width: fit-content;
   border: 1px solid rgb(199, 198, 198);
+  background-color: rgb(237, 240, 240);
   margin: 20px;
 }
 
 .smurf-form form label {
   margin: 10px;
   font-weight: 600;
+  color: rgb(58, 57, 57);
 }
 
 .smurf-form form input {
@@ -97,9 +100,8 @@ body {
   letter-spacing: 0.5px;
   outline: none;
   border: none;
-  border-bottom: 1px solid gray;
-  color: blue;
   width: 130px;
+  border-radius: 10px;
 }
 
 #name {
@@ -118,6 +120,12 @@ body {
   margin: 10px 0;
   font-size: 18px;
   align-self: center;
-  padding: 3px 15px;
+  padding: 5px 15px;
   cursor: pointer;
+  transition-duration: 0.4s;
+}
+
+.smurf-form form button:hover {
+  background-color: black;
+  color: #fff;
 }
