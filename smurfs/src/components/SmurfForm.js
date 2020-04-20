@@ -70,11 +70,9 @@ function SmurfForm({ handleInput, resetForm, postNewSmurf, modifySmurf }) {
   );
 }
 
-const mapDispatchToProps = {
+export default connect(null, {
   handleInput,
   resetForm,
   postNewSmurf,
   modifySmurf,
-};
-
-export default connect(null, mapDispatchToProps)(SmurfForm);
+})(SmurfForm);
