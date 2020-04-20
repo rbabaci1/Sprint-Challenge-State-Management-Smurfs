@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
 import { fetchSmurfs } from '../actions/smurfsActions';
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 import SmurfCard from './SmurfCard';
 
-function Smurfs({ fetchSmurfs, smurfs, error }) {
+function Smurfs({ fetchSmurfs }) {
+  const { smurfs, error } = useSelector(({ smurfsReducer }) => smurfsReducer);
+
   useEffect(() => {
     fetchSmurfs();
   }, [fetchSmurfs]);
@@ -21,9 +23,4 @@ function Smurfs({ fetchSmurfs, smurfs, error }) {
   );
 }
 
-const mapStateToProps = ({ smurfsReducer }) => ({
-  smurfs: smurfsReducer.smurfs,
-  error: smurfsReducer.error,
-});
-
-export default connect(mapStateToProps, { fetchSmurfs })(Smurfs);
+export default connect(null, { fetchSmurfs })(Smurfs);
