@@ -4,14 +4,12 @@ export const HEIGHT = 'HEIGHT';
 export const RESET = 'RESET';
 export const EDITING = 'EDITING';
 
-export const handleInput = (e, fieldName) => {
-  return { type: fieldName, payload: e.target.value };
-};
+export const handleInput = (e, fieldName) => ({
+  type: fieldName,
+  payload: e.target.value,
+});
 
-export const resetForm = () => {
-  return { type: RESET };
-};
+export const resetForm = () => ({ type: RESET });
 
-export const editSmurf = (smurf) => (dispatch) => {
+export const editSmurf = (smurf) => (dispatch) =>
   dispatch({ type: EDITING, payload: smurf });
-};
