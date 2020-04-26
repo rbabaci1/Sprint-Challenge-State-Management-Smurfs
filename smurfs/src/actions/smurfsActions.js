@@ -54,7 +54,7 @@ export const modifySmurf = (modifiedSmurf) => (dispatch) => {
 export const deleteSmurf = (smurfId) => (dispatch) => {
   dispatch({ type: DELETING });
 
-  Axios.delete(`http://llocalhost:3333/smurfs/${smurfId}`)
+  Axios.delete(`http://localhost:3333/smurfs/${smurfId}`)
     .then((response) => {
       dispatch({ type: SUCCESS, payload: response.data });
     })
